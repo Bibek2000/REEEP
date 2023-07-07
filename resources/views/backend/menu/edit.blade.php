@@ -1,19 +1,31 @@
 @extends('layouts.app1')
-@section('Heading','Create Menu')
+@section('Heading','Menu')
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <!-- left column -->
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <!-- general form elements -->
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Menu</h3>
+                        <h2>Edit</h2>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    {!! Form::model($data['record'],['route' => 'menus.update'], 'method' => 'post']) !!}
-                    @include('backend.menu.mainForm')
+                    {!! Form::model($menu, ['route' => ['menus.update', $menu], 'method' => 'post']) !!}
+                    @method("PUT")
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="menu">Menu:</label>
+                            <select name="menu" id="menu" class="form-control">
+                                <option value="" >Select a parent </option>
+                                @foreach ($menus as $item)
+                                    @include('partials.option', ['childMenu' => $item, 'parent_id'=> $menu->parent->id??"", 'depth' => 0])
+                                @endforeach
+                            </select>
+                        </div>
+
+                        @include('backend.menu.mainForm')
                     {!! Form::close() !!}
                 </div>
             </div>

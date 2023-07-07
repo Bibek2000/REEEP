@@ -1,0 +1,38 @@
+.menu {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-item > .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 0;
+    background-color: #fff; /* Set the background color of the submenu */
+    border: 1px solid #ccc; /* Set the border of the submenu */
+    z-index: 1; /* Adjust the z-index to ensure the submenu appears above other content if needed */
+}
+
+.menu-item:hover > .submenu {
+    display: block;
+}
+
+.submenu li {
+    position: relative;
+}
+
+.submenu li:hover > .submenu {
+    display: block;
+    left: 100%;
+    top: 0;
+    margin-left: 10px; /* Adjust the margin to create an indentation effect for nested submenus */
+}
+
+.submenu li:hover > .submenu > li {
+    display: list-item; /* Show the grandchild submenu items when hovering over them */
+}

@@ -2,14 +2,19 @@
 @section('Heading', 'Menu')
 @section('content')
 
-    <h2 style="text-align:center">View Menus</h2>
+    <div style="display: flex">
+        <div class="btn btn-success mr-1 ml-2" style="height: 40px"><a href="{{route('menus.create')}}">
+                <i class="fas fa-plus text-white"></i></a>
+        </div>
+        <h2 style="text-align:center">View</h2>
+    </div>
     <table class="table">
         <thead>
         <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Slug</th>
-            <th scope="col">Parent Id</th>
+            <th scope="col">Parent Name</th>
             <th scope="col">Order</th>
             <th scope="col">Status</th>
         </tr>
@@ -20,8 +25,7 @@
                 <td>{{$loop->index+1}}</td>
                 <td>{{$menu->name}}</td>
                 <td>{{$menu->slug}}</td>
-                <td>{{$menu->product_id}}</td>
-                <td>{{$menu->order}}</td>
+                <td>{{$menu->parent->name ?? "-"}}</td>
                 <td>{{$menu->order}}</td>
                 <td>
                     <form id="toggle-form-{{$menu->id}}" action="{{ route('status.approval', $menu->id) }}" method="post">
