@@ -986,7 +986,9 @@ section {
   right: 0;
   padding: 3rem;
   z-index: 99;
+    color: #f0efd0;
 }
+
 
 .hover-4-description {
   position: absolute;
@@ -1036,6 +1038,10 @@ section {
 .hover-4:hover .hover-4-button {
   opacity: 1;
   transform: none;
+}
+
+.hover-4:hover .hover-4-title {
+    color: #0a9613;
 }
 
 .hover-4:hover .hover-overlay {

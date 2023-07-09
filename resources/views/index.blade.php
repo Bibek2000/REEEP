@@ -194,7 +194,7 @@
                             </div>
                             <div class="content">
                                 <h2>{{$workingArea->title}}</h2>
-                                <p>{{substr($workingArea->description, 0, 100)}}
+                                <p>{!! substr($workingArea->description, 0, 100)!!}
                                 </p>
 
                             </div>
@@ -220,10 +220,10 @@
 
                     <!-- DEMO 4 Item-->
                     <div class="col-lg-6 mb-3 mb-lg-0">
-                        <a href="{{route('view.news', $newsData->category)}}"><div class="hover hover-4 text-white rounded"><img src="{{$newsData->image}}" alt="">
+                        <div class="hover hover-4 text-white rounded"><img src="{{$newsData->image}}" alt="">
                             <div class="hover-overlay"></div>
                             <div class="hover-4-content">
-                                <h3 class="hover-4-title text-uppercase font-weight-bold mb-0 text-white"><span class="font-weight-light"></span>NEWS</h3>
+                                <a href="{{route('view.news', $newsData->category)}}"><h3 class="hover-4-title text-uppercase font-weight-bold mb-0 "><span class="font-weight-light" style="font-size: x-small">View more</span> NEWS</h3></a>
                                 <p class="hover-4-description text-uppercase mb-0 small text-white">{{substr($newsData->description, 0, 50)}}....</p>
                                 <p class="hover-4-button text-uppercase mb-0 small"><a href="{{route('view.one', $newsData->id)}}"><button class="btn btn-success">Read More</button></a></p>
                                 <p class=" text-uppercase mb-0 small text-center">View More</p>
@@ -233,10 +233,10 @@
                     </div>
                     <!-- DEMO 4 Item            -->
                     <div class="col-lg-6">
-                        <a href="{{route('view.news', $eventsData->category)}}"><div class="hover hover-4 text-white rounded"><img src="{{$eventsData->image}}" alt="">
+                        <div class="hover hover-4 text-white rounded"><img src="{{$eventsData->image}}" alt="">
                             <div class="hover-overlay"></div>
                             <div class="hover-4-content">
-                                <h3 class="hover-4-title text-uppercase font-weight-bold mb-0 text-white"><span class="font-weight-light"></span>Model</h3>
+                                <a href="{{route('view.news', $eventsData->category)}}"><h3 class="hover-4-title text-uppercase font-weight-bold mb-0"><span class="font-weight-light" style="font-size: x-small">View more</span> Events</h3></a>
                                 <p class="hover-4-description text-uppercase mb-0 small text-white">{{substr($eventsData->description, 0, 50)}}....</p>
                                 <p class="hover-4-button text-uppercase mb-0 small"><a href="{{route('view.one', $eventsData->id)}}"><button class="btn btn-success">Read More</button></a></p>
                             </div>
@@ -469,68 +469,7 @@
 <!-- ======= Footer ======= -->
 <footer id="footer">
 
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-3 col-md-6 footer-contact">
-                    <h3>REEEP</h3>
-                    <p>
-                        {{$phoneData->name}}<br>
-                        {{$phoneData->location}}<br>
-                        <strong>Phone:</strong> {{$phoneData->phone}}<br>
-                        <strong>Email:</strong> {{$phoneData->email}}<br>
-                    </p>
-                    <div class="img-german" style="display: flex;">
-                        <div style="margin-right: 10px"><img src="/assets/img/giz-e1547127585571.png" alt="" srcset="" width="70" height="60"></div>
-                        <div><img src="/assets/img/nepal-germany.jpg" alt="" srcset="" width="70" height="60"></div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        @foreach($leafMenus as $leafMenu)
-                            <li><i class="bx bx-chevron-right"></i> <a href="{{$leafMenu->slug}}">{{$leafMenu->name}}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Working Area</h4>
-                    <ul>
-                        @foreach($workingAreas as $workingArea)
-                        <li><i class="bx bx-chevron-right"></i> <a href="{{route('view.workingarea', $workingArea->id)}}">{{$workingArea->title}}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Our Social Networks</h4>
-                    <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
-                    <div class="social-links mt-3">
-                        @foreach($socialMedia as $social)
-                        <a href="{{$social->network}}" class="facebook" style="background-color: #2ba71e;"><i class="{{$social->icon}}" ></i></a>
-                        @endforeach
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="container footer-bottom clearfix">
-        <div class="copyright">
-            &copy; Copyright <strong><span>REEEP</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-            Designed by <a href="https://www.youngminds.com.np/">Young Minds</a>
-        </div>
-    </div>
+   @include('partials.footer');
 </footer><!-- End Footer -->
 
 <div id="preloader"></div>

@@ -107,7 +107,16 @@
     @section('heading','News and Events')
 @section('content')
 <section id="news" class="news section-bg">
-
+<div class="align-content-center">
+    {!! Form::open(['route' => 'news.search', 'method' => 'GET', 'enctype' => 'multipart/form-data']) !!}
+        @csrf
+        <div class="form-group" style="display: flex;">
+            {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Search news and events', 'required']) !!}
+            @error('name')<span class="text-danger">{{$message}}</span>@enderror
+            {!! Form::submit('Search', ['class'=>'btn btn-success']) !!}
+        </div>
+    {!! Form::close() !!}
+</div>
         <div class="row">
             <div class="container d-flex align-items-center justify-content-center position-relative flex-wrap working-area ">
 

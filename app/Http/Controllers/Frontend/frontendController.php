@@ -35,6 +35,14 @@ class frontendController extends Controller
         $bannerData['records'] = Banner::get()->all();
         return view('index', compact('bannerData', 'aboutFirstData', 'workingAreas', 'knowledgeDatas', 'newsData', 'eventsData', 'partner', 'albumData', 'phoneData', 'leafMenus', 'socialMedia'));
     }
+    public function innerviews(){
+        $socialMedia = Link::get()->all();
+        $leafMenus = Menu::whereNull('parent_id')
+            ->whereDoesntHave('children')
+            ->get();
+        $phoneData = Phone::first();
+        return view('layouts.innerpage', compact('socialMedia', 'leafMenus', 'phoneData'));
+    }
 
     public function about(){
         $aboutData['records'] = About::get()->all();
@@ -68,4 +76,15 @@ class frontendController extends Controller
         $newsData = News::get()->all();
         return view('inner-pages.allNewsEvents', compact('newsData'));
     }
+    public function search(Request $request){
+
+        $searchTerm = $request->input('name');
+
+        // Search for news
+        $newsData = News::where('title', 'like', '%' . $searchTerm . '%')
+            ->first();
+        return view('inner-pages.searchNews', compact('newsData'));
+    }
+
+
 }

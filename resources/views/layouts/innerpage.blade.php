@@ -72,17 +72,12 @@
 
         <nav id="navbar" class="navbar">
             @include('partials.menuItems')
-
-
             {{--                <li><a class="nav-link scrollto" href="#about">About</a></li>--}}
             {{--                <li><a class="nav-link scrollto" href="#services">Working Areas</a></li>--}}
             {{--                <li><a class="nav-link scrollto" href="#news">News</a></li>--}}
             {{--                <li><a class="nav-link   scrollto" href="#portfolio">Gallery</a></li>--}}
             {{--                <li><a class="nav-link scrollto" href="#team">Partner</a></li>--}}
             {{--                <li><a class="nav-link scrollto" href="#contact">Contact</a></li>--}}
-
-
-
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
         <div class="img-german" style="display: flex; margin-left: 10px;">
@@ -99,7 +94,7 @@
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
 
-            <div class="section-title mt-5">
+            <div class="section-title mt-5" style="height: 80px">
                 <h2>@yield('heading')</h2>
             </div>
             @yield('content')
@@ -114,74 +109,7 @@
 <!-- ======= Footer ======= -->
 <footer id="footer">
 
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-3 col-md-6 footer-contact">
-                    <h3>REEEP</h3>
-                    <p>
-                        Ministry of Energy<br>
-                        Singadurbar<br>
-                        <strong>Phone:</strong> 9898989898<br>
-                        <strong>Email:</strong> info@example.com<br>
-                    </p>
-                    <div class="img-german" style="display: flex;">
-                        <div style="margin-right: 10px"><img src="/assets/img/giz-e1547127585571.png" alt="" srcset="" width="70" height="60"></div>
-                        <div><img src="/assets/img/nepal-germany.jpg" alt="" srcset="" width="70" height="60"></div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Our Social Networks</h4>
-                    <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
-                    <div class="social-links mt-3">
-                        <a href="#" class="twitter" style="background-color: #2ba71e;"><i class="bx bxl-twitter"></i></a>
-                        <a href="#" class="facebook" style="background-color: #2ba71e;"><i class="bx bxl-facebook" ></i></a>
-                        <a href="#" class="instagram" style="background-color: #2ba71e;"><i class="bx bxl-instagram"></i></a>
-                        <a href="#" class="google-plus" style="background-color: #2ba71e;"><i class="bx bxl-skype"></i></a>
-                        <a href="#" class="linkedin" style="background-color: #2ba71e;"><i class="bx bxl-linkedin"></i></a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="container footer-bottom clearfix">
-        <div class="copyright">
-            &copy; Copyright <strong><span>REEEP</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-            Designed by <a href="#">Young Minds</a>
-        </div>
-    </div>
+    @include('partials.footer')
 </footer><!-- End Footer -->
 
 <div id="preloader"></div>

@@ -98,3 +98,7 @@ Route::post('/contact/mail', [\App\Http\Controllers\MailController::class, 'stor
 
 // Language translator route
 Route::get('lang/change', [\App\Http\Controllers\LangController::class, 'change'])->name('changeLang');
+
+//for search
+Route::get('/search', [\App\Http\Controllers\Frontend\frontendController::class, 'search'])->name('news.search');
+Route::post('/search', [\App\Http\Controllers\Frontend\frontendController::class, 'search']);
