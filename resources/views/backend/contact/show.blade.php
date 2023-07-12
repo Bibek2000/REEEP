@@ -2,8 +2,10 @@
 @section('Heading', 'Contacts')
 @section('content')
     <div class="card-body">
-        <h2 class="text-center">Show</h2>
+        <div class="btn btn-success" style="margin-bottom: 5px"><a href="{{route('contacts.index')}}">
+                <i class="fas fa-list text-white"></i></a>
         </div>
+
         <div class="row">
             <div class="col-6 ml-2">
                 <div>

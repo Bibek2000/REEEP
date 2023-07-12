@@ -54,10 +54,10 @@
         </thead>
         <tbody>
         @foreach($linkData as $link)
-            <tr>
+            <tr> 
                 <td>{{$loop->index+1}}</td>
                 <td>{{$link->network}}</td>
-                <td>{{$link->icon}}</td>
+                <td><i class="fa fas-{{$link->icon}}"></i></td>
                 <td>
                     <a href="{{route('links.edit', $link->id)}}" class="btn btn-warning edit-link"><i class="fas fa-edit"></i></a>
                     <form action="{{route('links.destroy', $link->id)}}" method="post" style="display:inline-block">

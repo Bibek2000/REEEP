@@ -110,7 +110,7 @@ h6 {
 #header {
   transition: all 0.5s;
   z-index: 997;
-  padding: 15px 0;
+  padding: 10px 0;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -374,6 +374,7 @@ h6 {
   font-size: 12px;
 }
 
+
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover > a {
@@ -383,6 +384,7 @@ h6 {
 .navbar-mobile .dropdown > .dropdown-active {
   display: block;
 }
+
 
 /*--------------------------------------------------------------
 # Hero Section
@@ -1016,9 +1018,34 @@ section {
 }
 
 @media (min-width: 992px) {
-  .hover-4-description {
-    width: 50%;
-  }
+    .hover-4 .hover-4-description
+    {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 50%;
+    }
+    .hover-4 .hover-4-button {
+        position: absolute;
+        top: 10px;
+        left: 150px;
+        width: 50%;
+    }
+}
+@media (min-width: 810px) {
+    .hover-4 .hover-4-description
+    {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 50%;
+    }
+    .hover-4 .hover-4-button {
+        position: absolute;
+        top: 10px;
+        left: 150px;
+        width: 50%;
+    }
 }
 
 .hover-4:hover img {
@@ -1047,6 +1074,23 @@ section {
 .hover-4:hover .hover-overlay {
   background: rgba(0, 0, 0, 0.8);
 }
+
+@media (max-width: 768px) {
+    .hover-4 .hover-4-description
+    {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 50%;
+    }
+    .hover-4 .hover-4-button {
+        position: absolute;
+        top: 10px;
+        left: 150px;
+        width: 50%;
+    }
+}
+
 
 /*--------------------------------------------------------------
 # Cta
@@ -1363,105 +1407,120 @@ section {
   margin-left: 8px;
 }
 
-/*--------------------------------------------------------------
-# Knowledge and discovery
---------------------------------------------------------------*/
+/* Add this CSS */
+.discovery .content-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .pricing .row {
-  padding-top: 40px;
+    padding-top: 10px;
+    justify-content: center; /* Add this line */
 }
 
 .pricing .box {
-  padding: 60px 40px;
-  box-shadow: 0 3px 20px -2px rgba(20, 45, 100, 0.1);
-  background: #fff;
-  height: 100%;
-  border-top: 4px solid #fff;
-  border-radius: 5px;
+    padding: 60px 40px;
+    box-shadow: 0 3px 20px -2px rgba(20, 45, 100, 0.1);
+    background: #fff;
+    height: 100%;
+    border-top: 4px solid #fff;
+    border-radius: 5px;
 }
 
-.pricing h3 {
-  font-weight: 500;
-  margin-bottom: 15px;
-  font-size: 20px;
-  color: #37517e;
+.knowledge {
+    margin: auto;
+}
+.knowledge .row {
+    margin-left: -15px;
+    margin-right: -15px;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Raleway);
+.knowledge .col-md-4 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/* Remove the comments from .knowledge if required */
 /* .knowledge {
   margin-top: 200px;
 } */
+
 .title {
-  color: #1a1a1a;
-  text-align: center;
-  margin-bottom: 10px;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 10px;
 }
+
 .discovery {
-  position: relative;
-  width: 90%;
-  max-width: 400px;
-  margin: auto;
-  overflow: hidden;
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+    overflow: hidden;
+    margin-bottom: 30px;
 }
+
 .discovery .content-overlay {
-  background: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  height: 99%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  opacity: 0;
-  -webkit-transition: all 0.4s ease-in-out 0s;
-  -moz-transition: all 0.4s ease-in-out 0s;
-  transition: all 0.4s ease-in-out 0s;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
 }
+
 .discovery:hover .content-overlay {
-  opacity: 1;
+    opacity: 1;
 }
+
 .content-image {
-  width: 100%;
-}
-img {
-  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Add this line */
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
 .content-details {
-  position: absolute;
-  text-align: center;
-  padding-left: 1em;
-  padding-right: 1em;
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  opacity: 0;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  -moz-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
+    position: absolute;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out 0s;
 }
+
 .discovery:hover .content-details {
-  top: 50%;
-  left: 50%;
-  opacity: 1;
+    top: 50%;
+    left: 50%;
+    opacity: 1;
 }
+
 .content-details h3 {
-  color: #fff;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  margin-bottom: 0.5em;
-  text-transform: uppercase;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
 }
+
 .content-details p {
-  color: #fff;
-  font-size: 0.8em;
+    color: #fff;
+    font-size: 0.8em;
 }
+
 .fadeIn-bottom {
-  top: 80%;
+    top: 80%;
 }
+
 
 /*--------------------------------------------------------------
 # Frequently Asked Questions
@@ -1614,7 +1673,7 @@ img {
   background: #0a9613;
   color: #fff;
 }
-
+.contact .info .name:hover i,
 .contact .info .email:hover i,
 .contact .info .address:hover i,
 .contact .info .phone:hover i {
@@ -1784,6 +1843,7 @@ img {
 #footer {
   font-size: 14px;
   background: rgba(40, 90, 58, 0.9);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #footer .footer-newsletter {

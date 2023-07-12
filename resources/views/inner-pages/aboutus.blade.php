@@ -3,11 +3,11 @@
     @section('heading','About')
 @section('content')
     <style>
-        .container{
+        .containers{
             width: 100%;
             overflow: hidden;
         }
-        .container .about-image{
+        .containers .about-image{
             float: left;
             width: 50%;
             margin: 0 10px 0 0;
@@ -26,7 +26,7 @@
 
     </style>
     @foreach($aboutData['records'] as $aboutDatas)
-        <div class="container @if ($loop->index % 2 === 1) reverse @endif">
+        <div class="containers @if ($loop->index % 2 === 1) reverse @endif">
             <div class="about-image shadow p-3 mb-5 bg-white rounded">
                 <img class="img-fluid" src="{{ $aboutDatas->image }}" alt="###">
             </div>

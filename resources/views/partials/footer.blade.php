@@ -40,7 +40,7 @@
                 <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
                 <div class="social-links mt-3">
                     @foreach($data['socialMedia'] as $social)
-                        <a href="{{$social->network}}" class="facebook" style="background-color: #2ba71e;"><i class="{{$social->icon}}" ></i></a>
+                        <a href="{{$social->network}}" class="facebook" style="background-color: #2ba71e;"><i class="bx bxl-{{$social->icon}}" ></i></a>
                     @endforeach
                 </div>
             </div>

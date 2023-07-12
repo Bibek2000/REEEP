@@ -50,7 +50,44 @@
     ======================================================== -->
 
     <!-- CSS -->
+<style>
+    @media (max-width: 542px) {
+        .galleries {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
+       .galleries .col-4
+       {
+            flex-basis: 50%;
+            max-width: 50%;
+        }
+
+        .galleries .content-image {
+            width: 100%;
+            height: 250px; /* Set a fixed height for all images */
+            object-fit: cover; /* Ensure the images cover the entire container */
+        }
+    }
+    @media (max-width: 750.98px) {
+        .galleries {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .galleries .col-4{
+            flex-basis: 50%;
+            max-width: 50%;
+        }
+
+        .galleries .content-image {
+            width: 100%;
+            height: 250px; /* Set a fixed height for all images */
+            object-fit: cover; /* Ensure the images cover the entire container */
+        }
+    }
+
+</style>
 </head>
 
 <body>
@@ -58,10 +95,10 @@
 <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 <div class="row">
-    <div class="col-5">
+    <div class="col-lg-4">
         <h1 class="logo me-auto">
             <div style="display: flex;">
-                <div><img src="assets/img/gov.png" lt="" srcset=""></div>
+                <div><img src="assets/img/gov.png" alt="" srcset=""></div>
                 <div style="display: flex; flex-direction: column;">
                     <a href="#">REEEP</a><p style="font-size: 10px; color: aliceblue;">Renewable Energy and Energy Efficiency Programme</p>
                 </div>
@@ -71,36 +108,31 @@
 
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-<div class="col-6">
+<div class="col-lg-4 col-md-6">
         <nav id="navbar" class="navbar">
+
             @include('partials.menuItems')
 
 
-{{--                <li><a class="nav-link scrollto" href="#about">About</a></li>--}}
-{{--                <li><a class="nav-link scrollto" href="#services">Working Areas</a></li>--}}
-{{--                <li><a class="nav-link scrollto" href="#news">News</a></li>--}}
-{{--                <li><a class="nav-link   scrollto" href="#portfolio">Gallery</a></li>--}}
-{{--                <li><a class="nav-link scrollto" href="#team">Partner</a></li>--}}
-{{--                <li><a class="nav-link scrollto" href="#contact">Contact</a></li>--}}
-            <form action="{{route('changeLang')}}" method="get">
-                <div class="container">
-                    <select class="changeLang text-white" name="lang" style="background: none;border:none;">
-                        <option style="background: #2D8C59" value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
-                        <option style="background: #2D8C59" value="np" {{ session()->get('locale') == 'np' ? 'selected' : '' }}>
-                            नेपाली
-                        </option>
-                    </select>
-                </div>
-            </form>
             <i class="bi bi-list mobile-nav-toggle"></i>
 
         </nav><!-- .navbar -->
 </div>
-    <div class="col-1">
-        <div class="img-german" style="display: flex; margin-left: 10px;">
+    <div class="col-lg-4 col-md-6 d-flex align-items-center justify-content-end">
+        <div class="img-german" style="display: flex;">
             <div style="margin-right: 10px;"><img src="/assets/img/giz-e1547127585571.png" alt="" srcset="" width="80" height="50"></div>
             <div><img src="/assets/img/nepal-germany.jpg" alt="" srcset="" width="80" height="50"></div>
         </div>
+        <ul class="mb-0" style="list-style-type: none"><li><form action="{{route('changeLang')}}" method="get">
+                    <div class="container">
+                        <select class="changeLang text-white" name="lang" style="background: none;border:none;">
+                            <option style="background: #2D8C59" value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
+                            <option style="background: #2D8C59" value="np" {{ session()->get('locale') == 'np' ? 'selected' : '' }}>
+                                नेपाली
+                            </option>
+                        </select>
+                    </div>
+                </form></li></ul>
     </div>
 </div>
     </div>
@@ -224,7 +256,7 @@
                             <div class="hover-overlay"></div>
                             <div class="hover-4-content">
                                 <a href="{{route('view.news', $newsData->category)}}"><h3 class="hover-4-title text-uppercase font-weight-bold mb-0 "><span class="font-weight-light" style="font-size: x-small">View more</span> NEWS</h3></a>
-                                <p class="hover-4-description text-uppercase mb-0 small text-white">{{substr($newsData->description, 0, 50)}}....</p>
+                                <p class="hover-4-description text-uppercase mb-0 small text-white"><span class="font-weight-bold" style="font-size: 20px">{{$newsData->title}}: </span>{{substr($newsData->description, 0, 80)}}....</p>
                                 <p class="hover-4-button text-uppercase mb-0 small"><a href="{{route('view.one', $newsData->id)}}"><button class="btn btn-success">Read More</button></a></p>
                                 <p class=" text-uppercase mb-0 small text-center">View More</p>
                             </div>
@@ -237,7 +269,7 @@
                             <div class="hover-overlay"></div>
                             <div class="hover-4-content">
                                 <a href="{{route('view.news', $eventsData->category)}}"><h3 class="hover-4-title text-uppercase font-weight-bold mb-0"><span class="font-weight-light" style="font-size: x-small">View more</span> Events</h3></a>
-                                <p class="hover-4-description text-uppercase mb-0 small text-white">{{substr($eventsData->description, 0, 50)}}....</p>
+                                <p class="hover-4-description text-uppercase mb-0 small text-white"><span class="font-weight-bold" style="font-size: 20px">{{$eventsData->title}}: </span>{{substr($eventsData->description, 0, 80)}}....</p>
                                 <p class="hover-4-button text-uppercase mb-0 small"><a href="{{route('view.one', $eventsData->id)}}"><button class="btn btn-success">Read More</button></a></p>
                             </div>
                         </div>
@@ -278,11 +310,11 @@
                 <h2>Gallery</h2>
             </div>
 
-<div class="row">
+<div class="row galleries">
             @foreach($albumData as $album)
                 <div class="col-4">
                 <div class="content discovery">
-                        <div class="content-overlay"></div> <img class="content-image" src="{{$album->image}}" height="250px">
+                        <div class="content-overlay"></div> <img class="content-image" src="{{$album->image}}" style="height: 250px">
                         <div class="content-details fadeIn-bottom">
 {{--                            <p class="content-text"><i class="fa fa-arrow-alt-circle-right"></i>Learn More</p>--}}
                             <button type="button" class="rounded-circle mx-2 centered-button" data-bs-toggle="modal" data-bs-target="#exampleModal{{$album->id}}">
@@ -297,16 +329,18 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Image album</h5>
+                                <h4 class="modal-title" id="exampleModalLabel">{{$album->name}}</h4>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            @foreach($album->gallery as $item)
                             <div class="modal-body">
                                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                                     <div class="carousel-inner">
-                                        <div class="carousel-item active">
+                            @foreach($album->gallery as $item)
+                                        <div class="carousel-item {{$loop->index == 0 ? 'active' : ''}}">
                                             <img src="{{$item->image}}" class="d-block w-100" alt="...">
+                                            <p style="font-size: large; font-weight: bold" class="text-center">{{$item->title}}</p>
                                         </div>
+                                    @endforeach
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -318,7 +352,7 @@
                                     </button>
                                 </div>
                             </div>
-                            @endforeach
+
                         </div>
                     </div>
                 </div>
@@ -370,7 +404,7 @@
 @foreach($knowledgeDatas as $knowledgeData)
                             <div class="col-md-4">
                                 <div class="content discovery" style="height: 250px"> <a href="{{route('view.allKnowledge')}}">
-                                        <div class="content-overlay"></div> <img class="content-image" src="{{$knowledgeData->image}}">
+                                        <div class="content-overlay"></div> <img class="content-image img-fluid" src="{{$knowledgeData->image}}">
                                         <div class="content-details fadeIn-bottom">
                                             <h3 class="content-title">{{$knowledgeData->title}}</h3>
                                             <p class="content-text"><i class="fa fa-arrow-alt-circle-right"></i>Learn More</p>
@@ -394,7 +428,6 @@
 
             <div class="section-title">
                 <h2>Contact Us</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
             </div>
 
             <div class="row">
@@ -402,7 +435,7 @@
                 <div class="col-lg-5 d-flex align-items-stretch">
                     <div class="info">
                         <div class="name">
-                            <i class="bi bi-name-alt"></i>
+                            <i class="bi bi-person-lines-fill"></i>
                             <h4>Name:</h4>
                             <p>{{$phoneData->name}}</p>
                         </div>
@@ -454,7 +487,17 @@
                             {!! Form::textarea('message', null, ['class'=>'form-control', 'placeholder'=>'Enter your message here']) !!}
                             @error('message')<span class="text-danger">{{$message}}</span>@enderror
                         </div>
-
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <strong>ReCaptcha:</strong>
+                                <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
                         <div class="text-center"><button type="submit" class="btn btn-success">Send Message</button></div>
                     {!! Form::close() !!}
                 </div>
@@ -463,6 +506,15 @@
 
         </div>
     </section><!-- End Contact Section -->
+<div class="col-5" style="position: fixed;bottom: 10px;right: 10px;z-index: 999">
+    @include('components.alert')
+    <script>
+        setTimeout(function() {
+            $('.alert').fadeOut('slow');
+        }, 5000);
+    </script>
+</div>
+
 
 </main><!-- End #main -->
 
@@ -486,6 +538,9 @@
     });
 
 </script>
+
+{{--Google recaptcha--}}
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <!-- Vendor JS Files -->
 <script src="{{asset('assets/vendor/aos/aos.js')}}"></script>
 <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -497,6 +552,13 @@
 
 <!-- Template Main JS File -->
 <script src="{{asset('assets/js/main.js')}}"></script>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
 
 </body>

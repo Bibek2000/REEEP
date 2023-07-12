@@ -52,7 +52,6 @@
             <th scope="col">Location</th>
             <th scope="col">Email</th>
             <th scope="col">Phone</th>
-            <th scope="col">Maps</th>
         </tr>
         </thead>
         <tbody>
@@ -63,7 +62,6 @@
                 <td>{{$phones->location}}</td>
                 <td>{{$phones->email}}</td>
                 <td>{{$phones->phone}}</td>
-                <td>{{$phones->maps}}</td>
                 <td>
                     <a href="{{route('phones.edit', $phones->id)}}" class="btn btn-warning edit-link"><i class="fas fa-edit"></i></a>
                     <form action="{{route('phones.destroy', $phones->id)}}" method="post" style="display:inline-block">
@@ -75,7 +73,12 @@
                     </form>
                 </td>
             </tr>
+
         @endforeach
         </tbody>
     </table>
+    <h3>Maps</h3>
+    <div style="height: 290px; width: 100%; overflow: hidden">
+        {!! $phones->maps !!}
+    </div>
 @endsection

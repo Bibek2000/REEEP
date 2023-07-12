@@ -6,11 +6,24 @@
     <meta name="csrf-token" content="{{csrf_token()}}">
     <title> @yield('title') | Admin</title>
 
+    {{--    For drag and drop down of menu--}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('assets/backend/plugins/fontawesome-free/css/all.min.css')}}">
     <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('assets/backend/css/adminlte.min.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -67,7 +80,7 @@
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="" class="img-circle elevation-2" alt="User Image" style="border-radius: 100%; height: 40px">
+                    <img src="{{asset('assets/image/default.jpeg')}}" class="img-circle elevation-2" alt="User Image" style="border-radius: 100%; height: 40px">
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">{{auth()->user()->name}}</a>
@@ -89,7 +102,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-list-alt"></i>
                             <p>
                                 Menu
                                 <i class="right fas fa-angle-left"></i>
@@ -108,12 +121,18 @@
                                     <p>List</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{route('post.post_order')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Re-Order</p>
+                                </a>
+                            </li>
 
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-images"></i>
                             <p>
                                 Banner
                                 <i class="right fas fa-angle-left"></i>
@@ -137,7 +156,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-info-circle"></i>
                             <p>
                                 About
                                 <i class="right fas fa-angle-left"></i>
@@ -161,7 +180,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-area-chart"></i>
                             <p>
                                 Working Area
                                 <i class="right fas fa-angle-left"></i>
@@ -185,7 +204,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-book-reader"></i>
                             <p>
                                 News and Event
                                 <i class="right fas fa-angle-left"></i>
@@ -209,7 +228,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-lightbulb-o"></i>
                             <p>
                                 Knowledge and resources
                                 <i class="right fas fa-angle-left"></i>
@@ -233,7 +252,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-people-arrows"></i>
                             <p>
                                 Partners
                                 <i class="right fas fa-angle-left"></i>
@@ -257,7 +276,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-images"></i>
                             <p>
                                 Album
                                 <i class="right fas fa-angle-left"></i>
@@ -281,7 +300,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-image"></i>
                             <p>
                                 Gallery
                                 <i class="right fas fa-angle-left"></i>
@@ -305,7 +324,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-phone"></i>
                             <p>
                                 Our Contact
                                 <i class="right fas fa-angle-left"></i>
@@ -329,7 +348,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{route('contacts.index')}}" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-th-list"></i>
                             <p>
                                 List Contacts
                             </p>
@@ -337,7 +356,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-network-wired"></i>
                             <p>
                                 Social Media
                                 <i class="right fas fa-angle-left"></i>
@@ -390,6 +409,8 @@
 
 </div>
 <!-- ./wrapper -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 <!-- jQuery -->
 <script src="{{asset('assets/backend/plugins/jquery/jquery.min.js')}}"></script>

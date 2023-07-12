@@ -56,36 +56,49 @@
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
-
-        <h1 class="logo me-auto">
-            <div style="display: flex;">
-                <div><img src="{{asset('assets/img/gov.png')}}" alt="" srcset=""></div>
-                <div style="display: flex; flex-direction: column;">
-                    <a href="index.html">REEEP</a><p style="font-size: 10px; color: aliceblue;">Renewable Energy and Energy Efficiency Programme</p>
-                </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <h1 class="logo me-auto">
+                    <div style="display: flex;">
+                        <div><img src="/assets/img/gov.png" lt="" srcset=""></div>
+                        <div style="display: flex; flex-direction: column;">
+                            <a href="#">REEEP</a><p style="font-size: 10px; color: aliceblue;">Renewable Energy and Energy Efficiency Programme</p>
+                        </div>
+                    </div>
+                </h1>
             </div>
-        </h1>
+
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            <div class="col-lg-6">
+                <nav id="navbar" class="navbar">
+
+                    @include('partials.menuItems')
 
 
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+                    <i class="bi bi-list mobile-nav-toggle"></i>
 
-        <nav id="navbar" class="navbar">
-            @include('partials.menuItems')
-            {{--                <li><a class="nav-link scrollto" href="#about">About</a></li>--}}
-            {{--                <li><a class="nav-link scrollto" href="#services">Working Areas</a></li>--}}
-            {{--                <li><a class="nav-link scrollto" href="#news">News</a></li>--}}
-            {{--                <li><a class="nav-link   scrollto" href="#portfolio">Gallery</a></li>--}}
-            {{--                <li><a class="nav-link scrollto" href="#team">Partner</a></li>--}}
-            {{--                <li><a class="nav-link scrollto" href="#contact">Contact</a></li>--}}
-            <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
-        <div class="img-german" style="display: flex; margin-left: 10px;">
-            <div style="margin-right: 10px"><img src="/assets/img/giz-e1547127585571.png" alt="" srcset="" width="60" height="40"></div>
-            <div><img src="/assets/img/nepal-germany.jpg" alt="" srcset="" width="60" height="40"></div>
+                </nav><!-- .navbar -->
+            </div>
+            <div class="col-lg-2 d-flex align-items-center justify-content-end">
+                <div class="img-german" style="display: flex;">
+                    <div style="margin-right: 10px;"><img src="/assets/img/giz-e1547127585571.png" alt="" srcset="" width="80" height="50"></div>
+                    <div><img src="/assets/img/nepal-germany.jpg" alt="" srcset="" width="80" height="50"></div>
+                </div>
+                <ul><li><form action="{{route('changeLang')}}" method="get">
+                            <div class="container">
+                                <select class="changeLang text-white" name="lang" style="background: none;border:none;">
+                                    <option style="background: #2D8C59" value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
+                                    <option style="background: #2D8C59" value="np" {{ session()->get('locale') == 'np' ? 'selected' : '' }}>
+                                        नेपाली
+                                    </option>
+                                </select>
+                            </div>
+                        </form></li></ul>
+            </div>
         </div>
     </div>
-</header>
+</header><!-- End Header -->
 
 
 <main id="main">

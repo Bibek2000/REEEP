@@ -16,6 +16,6 @@ class MailController extends Controller
         $contactData = $request->only(['name', 'subject', 'email', 'message']);
         Contact::create($contactData);
         Mymail::to($request['email'])->send(new myMailer(''));
-        return redirect()->back()->with('success', 'Contact created successfully');
+        return redirect()->back()->with('success', 'We have received your message, Thank You!!!');
     }
 }

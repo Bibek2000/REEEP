@@ -4,12 +4,12 @@
     @php
         $counter = 0;
         $remainingMenus = [];
-    @endphp 
+    @endphp
     @foreach ($menus as $menu)
         @if ($menu->parent_id === null)
             @if ($counter < 4)
                 <li class="dropdown" >
-                    <a class="nav-link" href="/{{$menu->slug}}">{{ $menu->name }}</a>
+                    <a class="nav-link"  href="/{{$menu->slug}}">{{ $menu->name }}</a>
                     @if ($menu->children->isNotEmpty())
                         <ul>
                             @foreach ($menu->children as $child)

@@ -126,12 +126,18 @@
                         <div class="hover hover-4 text-white rounded mb-3"><img src="{{$news->image}}" alt="">
                             <div class="hover-overlay"></div>
                             <div class="hover-4-content">
-                                <h3 class="hover-4-title text-uppercase font-weight-bold mb-0 text-white"><span class="font-weight-light">{{$news->title}}</h3>
-                                <p class="hover-4-description text-uppercase mb-0 small text-white">{{substr($news->description, 0, 50)}}....</p>
+                                <h3 class="hover-4-title text-uppercase font-weight-bold mb-0 text-white"><span class="font-weight-light">
+                                        @if($news->category == 1)
+                                            News
+                                        @else
+                                            Events
+                                    @endif
+                                    </span>
+                                </h3>
+                                <p class="hover-4-description text-uppercase mb-0 small text-white"><span class="font-weight-bold" style="font-size: 20px">{{$news->title}}: </span>{{substr($news->description, 0, 50)}}....</p>
                                 <p class="hover-4-button text-uppercase mb-0 small"><a href="{{route('view.one', $news->id)}}"><button class="btn btn-success">Read More</button></a></p>
                             </div>
                         </div>
-                        </a>
                     </div>
                 @endforeach
 
@@ -139,9 +145,5 @@
 
             </div>
         </div>
-    </div>
-    </div>
-
-    </div>
 </section>
 @endsection

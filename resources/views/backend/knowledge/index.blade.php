@@ -59,7 +59,7 @@
             <tr>
                 <td>{{$loop->index+1}}</td>
                 <td>{{$knowledge->title}}</td>
-                <td style="width: 30%">{{substr($knowledge->description, 0, 150)}}...</td>
+                <td style="width: 30%">{!! substr($knowledge->description, 0, 150) !!}...</td>
                 <td><img src="{{$knowledge->image}}" alt="Image" height="100" width="100"></td>
                 <td><a href="{{$knowledge->pdf}}" target="_blank" class="btn btn-outline-success">View PDF</a></td>
 

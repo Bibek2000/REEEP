@@ -55,7 +55,7 @@ class LinkController extends Controller
             request()->session()->flash('error', "Error:Invalid Request");
             return redirect()->back();
         }
-        return view('backend.link.edit', compact('links'));
+        return view('backend.link.edit', compact('link'));
     }
 
     /**

@@ -22,7 +22,7 @@ class LinkRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'network'=> 'required|string|max:200',
+            'network'=> 'required|url|max:200',
             'icon'=> 'required|string|max:200',
         ];
         return $rules;

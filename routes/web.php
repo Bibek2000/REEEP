@@ -45,8 +45,10 @@ Route::middleware(['auth'])->group(function () {
     // Menu Routes
     Route::resource('menus', \App\Http\Controllers\Backend\MenuController::class);
     Route::patch('/status/approval/{id}', [\App\Http\Controllers\Backend\MenuController::class, 'statusApproval'])->name('status.approval');
+//Post reorder route
 
-
+    Route::get('/post/order', [\App\Http\Controllers\Backend\PostController::class ,'post_order'])->name('post.post_order');
+    Route::post('/post/post_order_change', [\App\Http\Controllers\Backend\PostController::class, 'post_order_change'])->name('post.order_change');
 
 // Banner section Routes
     Route::resource('banners', \App\Http\Controllers\Backend\BannerController::class);
@@ -81,11 +83,8 @@ Route::middleware(['auth'])->group(function () {
 //contact_info (phone) route section
     Route::resource('phones', \App\Http\Controllers\Backend\PhoneController::class);
 
-
-
 //social media links route
     Route::resource('links', \App\Http\Controllers\Backend\LinkController::class);
-
 
 //Admin profile view
     Route::resource('admin', \App\Http\Controllers\AdminController::class);
@@ -102,3 +101,5 @@ Route::get('lang/change', [\App\Http\Controllers\LangController::class, 'change'
 //for search
 Route::get('/search', [\App\Http\Controllers\Frontend\frontendController::class, 'search'])->name('news.search');
 Route::post('/search', [\App\Http\Controllers\Frontend\frontendController::class, 'search']);
+
+

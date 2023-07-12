@@ -20,16 +20,19 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Image album</h5>
+                            <h4 class="modal-title" id="exampleModalLabel">{{$album->name}}</h4>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+                        <div class="modal-body">
+                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
                         @foreach($album->gallery as $item)
-                            <div class="modal-body">
-                                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
+
+                                        <div class="carousel-item {{$loop->index == 0 ? 'active' : ''}}">
                                             <img src="{{$item->image}}" class="d-block w-100" alt="...">
+                                            <p style="font-size: large; font-weight: bold" class="text-center">{{$item->title}}</p>
                                         </div>
+                                    @endforeach
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -41,7 +44,7 @@
                                     </button>
                                 </div>
                             </div>
-                        @endforeach
+
                     </div>
                 </div>
             </div>

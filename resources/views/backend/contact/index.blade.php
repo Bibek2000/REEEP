@@ -52,6 +52,7 @@
             <th scope="col">Email</th>
             <th scope="col">Subject</th>
             <th scope="col">Description</th>
+            <th scope="col">Reply</th>
             <th scope="col">Action</th>
         </tr>
         </thead>

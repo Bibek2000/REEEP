@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ReCaptcha;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ContactRequest extends FormRequest
@@ -26,6 +27,7 @@ class ContactRequest extends FormRequest
             'email' => 'required|unique:contacts,email',
             'subject' => 'required',
             'message'=> 'required|string|between:2,2000',
+            'g-recaptcha-response' => ['required', new ReCaptcha]
         ];
         return $rules;
 

@@ -32,7 +32,7 @@ class AlbumController extends Controller
      */
     public function store(AlbumRequest $request)
     {
-        $albumData = $request->only(['title', 'image']);;
+        $albumData = $request->only(['name', 'image']);;
         $imageName = time() . '.' . $request->image->extension();
         $request->image->storeAs('album', $imageName, 'public');
         $albumData['image'] = '/storage/album/' . $imageName;
@@ -62,7 +62,7 @@ class AlbumController extends Controller
      */
     public function update(AlbumRequest $request, Album $album)
     {
-        $albumData = $request ->only(['title', 'image']);;
+        $albumData = $request ->only(['name', 'image']);;
 
         if ($request->image) {
 

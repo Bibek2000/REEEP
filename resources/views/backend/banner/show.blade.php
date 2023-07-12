@@ -3,8 +3,8 @@
 
 @section('content')
     <div class="card-body">
-        <div class="btn btn-success" style="margin-bottom: 5px"><a href="{{route('banners.create')}}">
-                <i class="fas fa-plus text-white"></i></a>
+        <div class="btn btn-success" style="margin-bottom: 5px"><a href="{{route('banners.index')}}">
+                <i class="fas fa-list text-white"></i></a>
         </div>
         <div class="row">
             <div class="col-6">

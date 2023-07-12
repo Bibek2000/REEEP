@@ -23,7 +23,7 @@ class FooterComposer
     {
         $data['socialMedia'] = Link::get()->all();
         $data['leafMenus'] = Menu::whereNull('parent_id')
-            ->whereDoesntHave('children')
+            ->whereDoesntHave('children')->take(5)
             ->get();
         $data['phoneData'] = Phone::first();
         $data['workingArea'] = WorkingArea::get();

@@ -58,7 +58,7 @@
             <tr>
                 <td>{{$loop->index+1}}</td>
                 <td>{{$workingarea->title}}</td>
-                <td style="width: 30%">{{substr($workingarea->description, 0, 150)}}...</td>
+                <td style="width: 30%">{!! substr($workingarea->description, 0, 150) !!}...</td>
                 <td><img src="{{$workingarea->image}}" alt="Image" height="100" width="100"></td>
                 <td>
                     <a href="{{route('workingareas.show', $workingarea->id)}}" class="btn btn-primary edit-link"><i class="fas fa-eye"></i></a>
