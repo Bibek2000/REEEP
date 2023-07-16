@@ -17,33 +17,20 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menus = Menu::get()->all();
+        $menus = Menu::with('children')->whereNull('parent_id')->orderBy('order')->get()->all();
         return view('backend.menu.index', compact('menus'));
 
     }
 
     /**
      * Show the form for creating a new resource.
-     */
+//     */
     public function create()
     {
-
-        $menuData = Menu::all()->groupBy('parent_id')->mapWithKeys(function ($items, $parent_id) {
-            return [$parent_id => $items->pluck('name', 'id')];
-        })->toArray();
-        $menuOptions = [];
-        $childMenuOptions = [];
-
-        foreach ($menuData as $parentKey => $items) {
-            if ($parentKey === "") {
-                $menuOptions = $items;
-            } else {
-                $childMenuOptions[$parentKey] = $items;
-            }
-        }
-
-        return view('backend.menu.create', compact('menuOptions', 'childMenuOptions'));
+        $menus = Menu::with('children')->whereNull('parent_id')->get();
+        return view('backend.menu.create', compact('menus'));
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -51,12 +38,20 @@ class MenuController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-           'name' => 'required',
+           'name' => 'required|unique:menus,name',
            'slug' => 'required',
-           'order' => 'required',
+           'order' => 'required|integer',
+            'status' => 'required|boolean'
         ]);
-        $menus = Menu::create($request->all());
-        if($menus){
+        $menu = new Menu();
+        $menu->name = $request['name'];
+        $menu->slug = $request['slug'];
+        $menu->parent_id = $request['menu'];
+        $menu->order = $request['order'];
+        $menu->status = $request['status'];
+        // Add any other necessary fields
+        $menu->save();
+        if($menu){
             return redirect(route('menus.index'))->with('success', "Menu Created successfully");
         }else{
             return redirect()->back();
@@ -66,51 +61,63 @@ class MenuController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Menu $menu)
     {
-        //
+        $menus = Menu::where('parent_id', $menu->id)->with('children')->orderBy('order')->get()->all();
+        return view('backend.menu.index', compact('menus'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Menu $menu)
     {
-        $data = Menu::find($id);
-
-        if (!$data) {
+        $menus = Menu::with('children')->whereNull('parent_id')->get();
+        if (!$menus) {
             request()->session()->flash('error', "Error:Invalid Request");
             return redirect()->back();
-
         }
-        return view('backend.menu.edit', compact('data'));
+        return view('backend.menu.edit', compact('menu','menus' ));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Menu $menu)
     {
-
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'order' => 'required|integer',
+            'status' => 'required|boolean'
+        ]);
+        $menu->name = $request['name'];
+        $menu->slug = $request['slug'];
+        $menu->parent_id = $request['menu'];
+        $menu->order = $request['order'];
+        $menu->status = $request['status'];
+        // Add any other necessary fields
+        $menu->save();
+        if($menu){
+            return redirect(route('menus.index'))->with('success', "Menu Created successfully");
+        }else{
+            return redirect()->back();
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Menu $menu)
     {
-        $data = Menu::find($id);
-        if(!$data){
-            request()->session()->flash('error',"Error:Invalid Request");
-            return redirect()->route('role.index');
+        $menu_child = Menu::with('children')->where('parent_id',$menu->id)->get();
+        foreach ($menu_child as $menus){
+            $menus->update(
+                ['parent_id' => $menu->parent_id]
+            );
         }
-        if($data->delete())
-        {
-            request()->session()->flash('success',"Successfully Deleted");
-        }else{
-            request()->session()->flash('error',"Error:Delete Failed ");
-        }
-        return redirect()->route('menus.index');
+        $menu->delete();
+        return redirect()->back();
     }
 
 //    Status approval for menu
@@ -121,12 +128,6 @@ class MenuController extends Controller
         $menu->save();
 
         return redirect()->back();
-    }
-
-    //Show data to  the front end
-    public function views(){
-
-        return view('index');
     }
 }
 

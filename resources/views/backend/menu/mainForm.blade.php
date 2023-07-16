@@ -1,16 +1,19 @@
-<div class="card-body">
-    <div class="form-group">
-        {!! Form::label('parent_id', 'Parent')!!}
-        {!! Form::select('parent_id',$menuOptions, null, ['class'=>'form-control', 'placeholder'=>'Select Parent']) !!}
-    </div>
-        <div class="form-group">
-            <!-- Child Menu Select (dependent on the parent menu) -->
-            {!! Form::label('child_menu', 'Child Menu') !!}
-            {!! Form::select('child_menu', $childMenuOptions, null, [
-                'class' => 'form-control',
-                'placeholder' => 'Select Child Menu',
-            ]) !!}
-        </div>
+
+{{--    <div class="form-group">--}}
+{{--        {!! Form::label('parent_id', 'Parent')!!}--}}
+{{--        {!! Form::select('parent_id',$menuOptions, null, ['class'=>'form-control', 'placeholder'=>'Select Parent']) !!}--}}
+{{--    </div>--}}
+{{--        <div class="form-group">--}}
+{{--            <!-- Child Menu Select (dependent on the parent menu) -->--}}
+{{--            {!! Form::label('child_menu', 'Child Menu') !!}--}}
+{{--            {!! Form::select('child_menu', $childMenuOptions, null, [--}}
+{{--                'class' => 'form-control',--}}
+{{--                'placeholder' => 'Select Child Menu',--}}
+{{--            ]) !!}--}}
+{{--        </div>--}}
+
+
+
 
     <div class="form-group">
         {!! Form::label('name', 'Menu') !!}
@@ -19,7 +22,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('slug', 'Slug') !!}
-        {!! Form::text('slug', null, ['class'=>'form-control', 'placeholder'=>' Enter slug']) !!}
+        {!! Form::text('slug', null, ['class'=>'form-control', 'placeholder'=>' Enter Slug']) !!}
         @error('slug')<span class="text-danger">{{$message}}</span>@enderror
     </div>
     <div class="form-group">
@@ -35,6 +38,7 @@
         {!! Form::label('approved_status', 'Approved') !!}<br>
     </div>
     <div class="form-group">
-        {!! Form::submit('Save', ['class'=>'btn btn-success']) !!}
+        {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
+        {!! Form::reset('Clear', ['class'=>'btn btn-danger']) !!}
     </div>
 </div>
