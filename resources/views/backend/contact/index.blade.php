@@ -38,12 +38,14 @@
             cursor: pointer;
         }
     </style>
-    <div style="display: flex">
-        <div class="btn btn-success mr-1 ml-2" style="height: 40px"><a href="{{route('contacts.create')}}">
-                <i class="fas fa-plus text-white"></i></a>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-left">
+                    <h2>Message Management</h2>
+                </div>
+            </div>
         </div>
-        <h2 style="text-align:center">View</h2>
-    </div>
     <table class="table">
         <thead>
         <tr>
@@ -52,14 +54,13 @@
             <th scope="col">Email</th>
             <th scope="col">Subject</th>
             <th scope="col">Description</th>
-            <th scope="col">Reply</th>
             <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
         @foreach($contactData as $contact)
             <tr>
-                <td>{{$loop->index+1}}</td>
+                <td>{{$startingNumber++}}</td>
                 <td>{{$contact->name}}</td>
                 <td>{{$contact->email}}</td>
                 <td>{{$contact->message}}</td>
@@ -79,6 +80,10 @@
         @endforeach
         </tbody>
     </table>
+    <div class="d-flex justify-content-center">
+        {!! $contactData->links() !!}
+    </div>
+
     <script>
         function toggleAppStatus(status) {
             $('#toggle-form-' + status).submit();

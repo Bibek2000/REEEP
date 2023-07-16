@@ -33,7 +33,7 @@
                     <img class="img-fluid abouts-image" src="{{ $newsSingle->image }}" alt="###">
                     <div class="text">
                         <h3 class="text-green">{{ $newsSingle->title }}</h3>
-                        <p>{!! $newsSingle->description !!}</p>
+                        <p>{!! nl2br($newsSingle->description) !!}</p>
                     </div>
             </div>
 @endsection

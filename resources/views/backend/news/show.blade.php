@@ -3,9 +3,17 @@
 
 @section('content')
     <div class="card-body">
-        <div class="btn btn-success" style="margin-bottom: 5px"><a href="{{route('news.index')}}">
-                <i class="fas fa-list text-white"></i></a>
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-left">
+                    <h2>Show News/Events</h2>
+                </div>
+                <div class="pull-right">
+                    <a class="btn btn-primary" href="{{ route('news.index') }}"> Back</a>
+                </div>
+            </div>
         </div>
+        <div class="card card-body">
         <div class="row">
             <div class="col-6">
                 <img class="img-fluid" src="{{$news->image}}" alt="###">

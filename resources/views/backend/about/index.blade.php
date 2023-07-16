@@ -38,11 +38,16 @@
             cursor: pointer;
         }
     </style>
-    <div style="display: flex">
-    <div class="btn btn-success"><a href="{{route('abouts.create')}}">
-        <i class="fas fa-plus text-white"></i></a>
-    </div>
-        <h2 style="text-align:center">View Abouts</h2>
+    <div class="card-body">
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2>About Management</h2>
+            </div>
+            <div class="pull-right">
+                    <a class="btn btn-success" href="{{ route('abouts.create') }}"> Create New About</a>
+            </div>
+        </div>
     </div>
     <table class="table">
         <thead>
@@ -75,4 +80,5 @@
         @endforeach
         </tbody>
     </table>
+    </div>
 @endsection

@@ -38,12 +38,17 @@
             cursor: pointer;
         }
     </style>
-    <div style="display: flex">
-        <div class="btn btn-success mr-1 ml-2" style="height: 40px"><a href="{{route('galleries.create')}}">
-                <i class="fas fa-plus text-white"></i></a>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-left">
+                    <h2>Gallery Management</h2>
+                </div>
+                <div class="pull-right">
+                    <a class="btn btn-success" href="{{ route('galleries.create') }}"> Create New Gallery</a>
+                </div>
+            </div>
         </div>
-        <h2 style="text-align:center">View</h2>
-    </div>
     <table class="table">
         <thead>
         <tr>

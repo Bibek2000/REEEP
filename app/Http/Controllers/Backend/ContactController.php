@@ -15,11 +15,24 @@ class ContactController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+        public function index()
     {
-        $contactData = Contact::get()->all();
-        return view('backend.contact.index', compact('contactData'));
+        $perPage = 5; // Number of items per page
+        $currentPage = request()->get('page', 1); // Get the current page from the query parameters, default to 1
+
+        $offset = ($currentPage - 1) * $perPage; // Calculate the offset based on the current page number
+        $contactData = Contact::offset($offset)->paginate($perPage, ['*'], 'page', $currentPage);
+
+        // Calculate the total count of contacts
+        $totalCount = Contact::count();
+
+        // Set the starting number based on the current page
+        $startingNumber = ($currentPage - 1) * $perPage + 1;
+
+        // Pass the starting number and total count to the view
+        return view('backend.contact.index', compact('contactData', 'startingNumber', 'totalCount'));
     }
+
 
 //    /**
 //     * Show the form for creating a new resource.

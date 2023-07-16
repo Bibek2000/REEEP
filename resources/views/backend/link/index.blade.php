@@ -38,12 +38,17 @@
             cursor: pointer;
         }
     </style>
-    <div style="display: flex">
-    <div class="btn btn-success mr-1 ml-2" style="height: 40px"><a href="{{route('links.create')}}">
-        <i class="fas fa-plus text-white"></i></a>
-    </div>
-        <h2 style="text-align:center">View</h2>
-    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-left">
+                    <h2>Link Management</h2>
+                </div>
+                <div class="pull-right">
+                    <a class="btn btn-success" href="{{ route('links.create') }}"> Create New Link</a>
+                </div>
+            </div>
+        </div>
     <table class="table">
         <thead>
         <tr>
@@ -54,7 +59,7 @@
         </thead>
         <tbody>
         @foreach($linkData as $link)
-            <tr> 
+            <tr>
                 <td>{{$loop->index+1}}</td>
                 <td>{{$link->network}}</td>
                 <td><i class="fa fas-{{$link->icon}}"></i></td>
@@ -72,4 +77,5 @@
         @endforeach
         </tbody>
     </table>
+    </div>
 @endsection

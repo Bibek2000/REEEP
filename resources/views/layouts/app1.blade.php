@@ -350,7 +350,7 @@
                         <a href="{{route('contacts.index')}}" class="nav-link">
                             <i class="nav-icon fas fa-th-list"></i>
                             <p>
-                                List Contacts
+                                User Enquiry
                             </p>
                         </a>
                     </li>
@@ -371,6 +371,56 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('links.index')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>List</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-user"></i>
+                            <p>
+                                User
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('users.create')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Create</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('users.index')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>List</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa-brands fa-critical-role"></i>
+                            <p>
+                                Role
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('roles.create')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Create</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('roles.index')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>List</p>
                                 </a>

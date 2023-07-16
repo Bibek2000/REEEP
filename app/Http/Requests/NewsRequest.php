@@ -22,15 +22,15 @@ class NewsRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'title'=> 'required|string|max:50',
-            'description'=> 'required|string|between:2,1000',
+            'title'=> 'required|string|max:250',
+            'description'=> 'required|string|between:2,15000',
             'category' => 'required',
             'image' => 'required|mimes:png,jpg,jpeg|max:8096',
         ];
         if ($this->isMethod('put') || $this->isMethod('patch')) {
             $rules = [
-                'title'=> 'required|string|max:50',
-                'description'=> 'required|string|between:2,1000',
+                'title'=> 'required|string|max:250',
+                'description'=> 'required|string|between:2,15000',
                 'category' => 'required',
             ];
         }

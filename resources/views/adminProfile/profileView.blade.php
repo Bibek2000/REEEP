@@ -3,7 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+            <div class="col-lg-4">
                 <img src="{{asset('assets/image/default.jpeg')}}" alt="..." width="300" height="300">
+            </div>
             <div class="mt-4">
                 Name: <h5 style="color: #0a53be">{{auth()->user()->name}}</h5>
                 Email: <h5 style="color: #0a53be">{{auth()->user()->email}}</h5>

@@ -38,12 +38,17 @@
             cursor: pointer;
         }
     </style>
-    <div style="display: flex">
-    <div class="btn btn-success mr-1 ml-2" style="height: 40px"><a href="{{route('workingareas.create')}}">
-        <i class="fas fa-plus text-white"></i></a>
-    </div>
-        <h2>View</h2>
-    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-left">
+                    <h2>Working Area Management</h2>
+                </div>
+                <div class="pull-right">
+                    <a class="btn btn-success" href="{{ route('workingareas.create') }}"> Create New Working Area</a>
+                </div>
+            </div>
+        </div>
     <table class="table">
         <thead>
         <tr>
@@ -75,4 +80,5 @@
         @endforeach
         </tbody>
     </table>
+    </div>
 @endsection

@@ -2,10 +2,18 @@
 @section('Heading', 'Gallery')
 
 @section('content')
-    <div class="card-body">
-        <div class="btn btn-success" style="margin-bottom: 5px"><a href="{{route('galleries.index')}}">
-                <i class="fas fa-list text-white"></i></a>
-        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12 margin-tb">
+                    <div class="pull-left">
+                        <h2>Show Banner</h2>
+                    </div>
+                    <div class="pull-right">
+                        <a class="btn btn-primary" href="{{ route('galleries.index') }}"> Back</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card card-body">
         <div class="row">
             <div class="col-6">
                 <img class="img-fluid" src="{{$gallery->image}}" alt="###">
@@ -28,5 +36,5 @@
             </div>
         </div>
     </div>
-
+        </div>
 @endsection

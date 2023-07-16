@@ -38,12 +38,17 @@
             cursor: pointer;
         }
     </style>
-    <div style="display: flex">
-    <div class="btn btn-success mr-1 ml-2" style="height: 40px"><a href="{{route('news.create')}}">
-        <i class="fas fa-plus text-white"></i></a>
-    </div>
-        <h2 style="text-align:center">View</h2>
-    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-left">
+                    <h2>News/Events Management</h2>
+                </div>
+                <div class="pull-right">
+                    <a class="btn btn-success" href="{{ route('news.create') }}"> Create New News/Events</a>
+                </div>
+            </div>
+        </div>
     <table class="table">
         <thead>
         <tr>
@@ -58,7 +63,7 @@
         @foreach($newsData as $news)
             <tr>
                 <td>{{$loop->index+1}}</td>
-                <td>{{$news->title}}</td>
+                <td style="width: 20%">{{$news->title}}</td>
                 <td style="width: 30%">{{substr($news->description, 0, 150)}}...</td>
                 <td>
                 @if($news->category === 1)
@@ -83,4 +88,5 @@
         @endforeach
         </tbody>
     </table>
+    </div>
 @endsection

@@ -4,14 +4,19 @@
 
 <div class="container-fluid">
     <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2>Create New Partner</h2>
+            </div>
+            <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('partners.index') }}"> Back</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <!-- left column -->
         <div class="col-md-12">
-            <!-- general form elements -->
             <div class="card card-primary">
-                <div class="card-header">
-                    <h2>Create</h2>
-                </div>
-                <!-- /.card-header -->
                 <!-- form start -->
                 {!! Form::open(['route' => 'partners.store', 'enctype' => 'multipart/form-data']) !!}
                         @include('backend.partners.mainForm')

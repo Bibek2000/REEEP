@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -89,6 +91,10 @@ Route::middleware(['auth'])->group(function () {
 //Admin profile view
     Route::resource('admin', \App\Http\Controllers\AdminController::class);
     Route::patch('/password_update/{admin}', [AdminController::class, 'passwordUpdate'])->name('admin.passwordUpdate');
+
+    //roles and permissions
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
 });
 
 //for mail
@@ -101,5 +107,6 @@ Route::get('lang/change', [\App\Http\Controllers\LangController::class, 'change'
 //for search
 Route::get('/search', [\App\Http\Controllers\Frontend\frontendController::class, 'search'])->name('news.search');
 Route::post('/search', [\App\Http\Controllers\Frontend\frontendController::class, 'search']);
+
 
 

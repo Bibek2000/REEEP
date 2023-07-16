@@ -3,14 +3,19 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-left">
+                    <h2>Edit Working Area</h2>
+                </div>
+                <div class="pull-right">
+                    <a class="btn btn-primary" href="{{ route('workingareas.index') }}"> Back</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <!-- left column -->
             <div class="col-md-12">
-                <!-- general form elements -->
                 <div class="card card-primary">
-                    <div class="card-header">
-                        <h2>Edit</h2>
-                    </div>
-                    <!-- /.card-header -->
                     <!-- form start -->
                     {!! Form::model($workingarea, ['route' => ['workingareas.update', $workingarea], 'method' => 'post', 'enctype' => 'multipart/form-data']) !!}
                     @method("PUT")

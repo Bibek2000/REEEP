@@ -1,5 +1,5 @@
 @extends('layouts.app1')
-@section('Heading', 'Our Contact')
+@section('Heading', 'ContactUs')
 @section('content')
     <style>
         .table {
@@ -38,12 +38,17 @@
             cursor: pointer;
         }
     </style>
-    <div style="display: flex">
-    <div class="btn btn-success mr-1 ml-2" style="height: 40px"><a href="{{route('phones.create')}}">
-        <i class="fas fa-plus text-white"></i></a>
-    </div>
-        <h2 style="text-align:center">View</h2>
-    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-left">
+                    <h2>ContactUs Management</h2>
+                </div>
+                <div class="pull-right">
+                    <a class="btn btn-success" href="{{ route('phones.create') }}"> Create New ContactUs</a>
+                </div>
+            </div>
+        </div>
     <table class="table">
         <thead>
         <tr>

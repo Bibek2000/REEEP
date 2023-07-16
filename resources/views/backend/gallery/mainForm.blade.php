@@ -25,7 +25,8 @@
         {!! Form::select('album_id', $album['record'], null, ['class' => 'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::submit('Save', ['class'=>'btn btn-success']) !!}
+        {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
+        {!! Form::reset('Clear', ['class'=>'btn btn-danger']) !!}
     </div>
 </div>
 
